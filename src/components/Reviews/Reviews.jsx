@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { fetchMovieReviews } from 'Services/api';
+import { fetchMovieReviews } from 'services/api';
 
 export const Reviews = () => {
   const { moviesId } = useParams();

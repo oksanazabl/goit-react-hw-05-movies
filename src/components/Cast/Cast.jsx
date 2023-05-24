@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import css from './Cast.module.css';
-import { fetchMovieCast } from 'Services/api';
+import { fetchMovieCast } from 'services/api';
 
 export const Cast = () => {
   const { moviesId } = useParams();

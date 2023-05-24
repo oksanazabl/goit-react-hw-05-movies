@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { fetchMoviesTrending } from 'Services/api';
+import { fetchMoviesTrending } from 'services/api';
 import { toast } from 'react-toastify';
 import { Circles } from 'react-loader-spinner';
 import { MoviesList } from 'components/MoviesList/MoviesList';

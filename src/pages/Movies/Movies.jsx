@@ -1,4 +1,4 @@
-import { fetchMovieByQuery } from 'Services/api';
+import { fetchMovieByQuery } from 'services/api';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 import { useEffect, useState } from 'react';
 import { Audio } from 'react-loader-spinner';

@@ -1,7 +1,7 @@
 import { Outlet, Link, useParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
-import { fetchMovieDetails } from 'Services/api';
+import { fetchMovieDetails } from 'services/api';
 import css from './MovieDetails.module.css';
 import { Circles } from 'react-loader-spinner';
 
