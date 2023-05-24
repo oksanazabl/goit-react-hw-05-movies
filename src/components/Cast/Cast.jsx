@@ -41,15 +41,15 @@ export const Cast = () => {
         <ul>
           {movieData.map(cast => (
             <li key={cast.id}>
-               {cast.profile_path ? (
+              
               <img
                 className={css.imgCast}
-                src={`https://image.tmdb.org/t/p/w200/${cast.profile_path}`}
+                src={
+                  cast.profile_path ?
+                  `https://image.tmdb.org/t/p/w200/${cast.profile_path}`:userImg}
                 alt="movie poster"
               />
-              ) : (
-                  <img className={css.listImg} alt='actor' src={userImg} />
-                )}
+              
               <div>{`Name: ${cast.original_name}`}</div>
               <div>{`Character: ${cast.character}`}</div>
             </li>

@@ -3,13 +3,13 @@ import { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { fetchMovieDetails } from 'services/api';
 import css from './MovieDetails.module.css';
-import { Circles } from 'react-loader-spinner';
+import { Loader } from 'components/Loader/Loader';
 import noPoster from '../../images/no_poster.jpg';
 
 export const MoviesDetails = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState('');
+  // const [error, setError] = useState('');
   const { moviesId } = useParams();
   const location = useLocation;
   const backLink = location?.state?.from ?? '/';
@@ -17,23 +17,23 @@ export const MoviesDetails = () => {
   useEffect(() => {
     if (!moviesId) return;
     const fetchMovie = async () => {
-      setError('');
+      // setError('');
       try {
         const data = await fetchMovieDetails(moviesId);
 
         setMovieData(data);
       } catch (error) {
-        setError('There is something wrong in your action');
+        toast.error('There is something wrong in your action');
       } finally {
         setIsLoading(false);
       }
     };
     fetchMovie();
   }, [moviesId]);
-  useEffect(() => {
-    if (!error) return;
-    toast.error(error);
-  }, [error]);
+  // useEffect(() => {
+  //   if (!error) return;
+  //   toast.error(error);
+  // }, [error]);
 
   return (
     <section className={css.section}>
@@ -43,15 +43,13 @@ export const MoviesDetails = () => {
             GO BACK
           </Link>
           <div className={css.movieCard}>
-            {movieData.poster_path ? (
+           
               <img
                 className={css.imgMain}
-                src={`https://image.tmdb.org/t/p/w200${movieData.poster_path}`}
+                src={movieData.poster_path ?`https://image.tmdb.org/t/p/w200${movieData.poster_path}`:noPoster}
                 alt="movie poster"
               />
-            ) : (
-              <img className={css.imgMain} alt="noPoster" src={noPoster} />
-            )}
+           
             <div>
               <ul>
                 <li className={css.cardListItem}>
@@ -89,17 +87,7 @@ export const MoviesDetails = () => {
           <Outlet />
         </>
       )}
-      {isLoading && (
-        <Circles
-          height="80"
-          width="80"
-          color="#4fa94d"
-          ariaLabel="circles-loading"
-          wrapperStyle={{}}
-          wrapperClass=""
-          visible={true}
-        />
-      )}
+      {isLoading && <Loader/>}
     </section>
   );
 };
