@@ -13,7 +13,7 @@ export const SearchBar = () => {
       <label>
         <input type={'text'} name="query" />
         <button type="submit">SEARCH
-        <GoSearch style={{ width: 25, height: 25 }} /></button>
+        <GoSearch style={{ width: 12, height: 12, marginLeft:5 }} /></button>
       </label>
     </form>
   );

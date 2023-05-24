@@ -1,0 +1,9 @@
+.listItem {
+  text-decoration: none;
+  list-style-type: none;
+  margin-bottom: 5px;
+  &:hover {
+    color: rgb(80, 109, 235);
+    text-decoration: underline;
+  }
+}

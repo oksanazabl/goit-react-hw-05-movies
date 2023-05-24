@@ -70,14 +70,14 @@ export const MoviesDetails = () => {
             </div>
           </div>
           <h3>Additional information</h3>
-          <ul className={css.navLinks}>
-            <li>
-              <Link to="cast" state={{ from: backLink }}>
+          <ul >
+            <li className={css.navLinks}>
+              <Link to="cast"  state={{ from: backLink }}>
                 Cast
               </Link>
             </li>
-            <li>
-              <Link to="reviews" state={{ from: backLink }}>
+            <li className={css.navLinks}>
+              <Link to="reviews"  state={{ from: backLink }}>
                 Reviews
               </Link>
             </li>
