@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import { fetchMovieDetails } from 'services/api';
 import css from './MovieDetails.module.css';
 import { Circles } from 'react-loader-spinner';
+import noPoster from '../../images/no_poster.jpg';
 
 export const MoviesDetails = () => {
   const [movieData, setMovieData] = useState([]);
@@ -42,12 +43,15 @@ export const MoviesDetails = () => {
             GO BACK
           </Link>
           <div className={css.movieCard}>
-            <img
-              className={css.imgMain}
-              src={`https://image.tmdb.org/t/p/w200${movieData.poster_path}`}
-              alt="movie poster"
-            />
-
+            {movieData.poster_path ? (
+              <img
+                className={css.imgMain}
+                src={`https://image.tmdb.org/t/p/w200${movieData.poster_path}`}
+                alt="movie poster"
+              />
+            ) : (
+              <img className={css.imgMain} alt="noPoster" src={noPoster} />
+            )}
             <div>
               <ul>
                 <li className={css.cardListItem}>
@@ -70,14 +74,14 @@ export const MoviesDetails = () => {
             </div>
           </div>
           <h3>Additional information</h3>
-          <ul >
+          <ul>
             <li className={css.navLinks}>
-              <Link to="cast"  state={{ from: backLink }}>
+              <Link to="cast" state={{ from: backLink }}>
                 Cast
               </Link>
             </li>
             <li className={css.navLinks}>
-              <Link to="reviews"  state={{ from: backLink }}>
+              <Link to="reviews" state={{ from: backLink }}>
                 Reviews
               </Link>
             </li>
