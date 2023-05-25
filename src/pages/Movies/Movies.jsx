@@ -12,7 +12,6 @@ import 'react-toastify/dist/ReactToastify.css';
 export const Movies = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  // const [error, setError] = useState('');
   const [searchParams] = useSearchParams();
 
   const searchQuery = searchParams.get('q');
@@ -21,7 +20,7 @@ export const Movies = () => {
     if (!searchQuery) return;
 
     const fetchMovie = async () => {
-      // setError('');
+ 
       setIsLoading(true);
       try {
         const data = await fetchMovieByQuery(searchQuery);
@@ -37,11 +36,6 @@ export const Movies = () => {
 
     fetchMovie();
   }, [searchQuery]);
-
-  // useEffect(() => {
-  //   if (!error) return;
-  //   toast.error(error);
-  // }, [error]);
 
   return (
     <section>

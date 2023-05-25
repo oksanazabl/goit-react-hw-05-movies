@@ -25,7 +25,9 @@ export const Reviews = () => {
     fetchMovie();
   }, [moviesId]);
  
-  
+  if (!movieData) {
+    return;
+  }
   return movieData.length > 0 ? (
     <section>
       <div>

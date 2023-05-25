@@ -8,11 +8,9 @@ import css from './Home.module.css';
 export const Home = () => {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState('');
 
   useEffect(() => {
     const fetchMovie = async () => {
-      // setError('');
       try {
         const data = await fetchMoviesTrending();
         setMovies(data.results);
@@ -24,10 +22,6 @@ export const Home = () => {
     };
     fetchMovie();
   }, []);
-  // useEffect(() => {
-  //   if (!error) return;
-  //   toast.error(error);
-  // }, [error]);
 
   return (
     <section>

@@ -26,10 +26,7 @@ export const Cast = () => {
     };
     fetchMovie();
   }, [moviesId]);
-  // useEffect(() => {
-  //   if (!error) return;
-  //   toast.error(error);
-  // }, [error]);
+ 
 
   if (!movieData) {
     return;

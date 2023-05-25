@@ -9,7 +9,6 @@ import noPoster from '../../images/no_poster.jpg';
 export const MoviesDetails = () => {
   const [movieData, setMovieData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [error, setError] = useState('');
   const { moviesId } = useParams();
   const location = useLocation;
   const backLink = location?.state?.from ?? '/';
@@ -17,7 +16,6 @@ export const MoviesDetails = () => {
   useEffect(() => {
     if (!moviesId) return;
     const fetchMovie = async () => {
-      // setError('');
       try {
         const data = await fetchMovieDetails(moviesId);
 
@@ -30,10 +28,6 @@ export const MoviesDetails = () => {
     };
     fetchMovie();
   }, [moviesId]);
-  // useEffect(() => {
-  //   if (!error) return;
-  //   toast.error(error);
-  // }, [error]);
 
   return (
     <section className={css.section}>
