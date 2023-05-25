@@ -7,30 +7,29 @@ import userImg from '../../images/user-profile.png';
 
 export const Cast = () => {
   const { moviesId } = useParams();
-  const [error, setError] = useState('');
   const [movieData, setMovieData] = useState([]);
   const [, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!moviesId) return;
     const fetchMovie = async () => {
-      setError('');
+       
       try {
         const data = await fetchMovieCast(moviesId);
 
         setMovieData(data);
       } catch (error) {
-        setError('There is something wrong in your action');
+        toast.error('There is something wrong in your action');
       } finally {
         setIsLoading(false);
       }
     };
     fetchMovie();
   }, [moviesId]);
-  useEffect(() => {
-    if (!error) return;
-    toast.error(error);
-  }, [error]);
+  // useEffect(() => {
+  //   if (!error) return;
+  //   toast.error(error);
+  // }, [error]);
 
   if (!movieData) {
     return;
